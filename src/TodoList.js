@@ -2,8 +2,12 @@ import React, { Component } from "react";
 import "antd/dist/antd.css";
 import { Input, Button, List } from "antd";
 import store from "./store/index";
-import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM } from "./store/actionTypes";
-import { changeInputAction } from "./store/actionCreators";
+// import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM } from "./store/actionTypes";
+import {
+  changeInputAction,
+  addItemAction,
+  deleteItemAction,
+} from "./store/actionCreators";
 
 // const data = ["8点晨会", "9点沟通需求会", "Review代码"];
 class TodoList extends Component {
@@ -45,11 +49,12 @@ class TodoList extends Component {
     );
   }
   changeInputValue(e) {
-    console.log(e.target.value);
-    const action = {
-      type: CHANGE_INPUT,
-      value: e.target.value,
-    };
+    // console.log(e.target.value);
+    // const action = {
+    //   type: CHANGE_INPUT,
+    //   value: e.target.value,
+    // };
+    const action = changeInputAction(e.target.value);
     store.dispatch(action);
   }
 
@@ -58,18 +63,20 @@ class TodoList extends Component {
   }
 
   clickBtn() {
-    const action = {
-      type: ADD_ITEM,
-    };
+    // const action = {
+    //   type: ADD_ITEM,
+    // };
+    const action = addItemAction();
     store.dispatch(action);
   }
 
   deleteItem(index) {
-    console.log(index);
-    const action = {
-      type: DELETE_ITEM,
-      index,
-    };
+    // console.log(index);
+    // const action = {
+    //   type: DELETE_ITEM,
+    //   index,
+    // };
+    const action = deleteItemAction(index);
     store.dispatch(action);
   }
 }
