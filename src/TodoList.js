@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TodoListUI from "./TodoListUI";
+import axios from "axios";
 import store from "./store/index";
 
 // import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM } from "./store/actionTypes";
@@ -7,7 +8,9 @@ import {
   changeInputAction,
   addItemAction,
   deleteItemAction,
+  getListAction,
 } from "./store/actionCreators";
+import ColumnGroup from "antd/lib/table/ColumnGroup";
 
 // const data = ["8点晨会", "9点沟通需求会", "Review代码"];
 class TodoList extends Component {
@@ -39,6 +42,18 @@ class TodoList extends Component {
     // };
     const action = changeInputAction(e.target.value);
     store.dispatch(action);
+  }
+
+  componentDidMount() {
+    axios
+      .get(
+        "https://www.easy-mock.com/mock/5cfcce489dc7c36bd6da2c99/xiaojiejie/getList"
+      )
+      .then((res) => {
+        const data = res.data;
+        const action = getListAction(data);
+        store.dispatch(action);
+      });
   }
 
   storeChange() {

@@ -10,7 +10,7 @@ const TodoListUI = (props) => {
           placeholder={props.inputValue}
           style={{ width: "250px", marginRight: "10px" }}
           onChange={props.changeInputValue}
-          value={state.inputValue}
+          value={props.inputValue}
         />
         <Button type="primary" onClick={props.clickBtn}>
           增加

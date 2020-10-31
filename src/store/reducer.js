@@ -1,4 +1,4 @@
-import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM } from "./actionTypes";
+import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM, GET_LIST } from "./actionTypes";
 const previousState = {
   inputValue: "Write sth",
   list: ["8点晨会", "9点沟通需求会", "Review代码"],
@@ -23,6 +23,11 @@ export default (state = previousState, action) => {
     let newState = JSON.parse(JSON.stringify(state));
     newState.list.splice(action.index, 1);
     newState.inputValue = "";
+    return newState;
+  }
+  if (action.type === GET_LIST) {
+    let newState = JSON.parse(JSON.stringify(state));
+    newState.list = action.data.data.list;
     return newState;
   }
   return state;
