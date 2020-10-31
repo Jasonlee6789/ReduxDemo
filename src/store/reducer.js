@@ -21,7 +21,7 @@ export default (state = previousState, action) => {
   }
   if (action.type === DELETE_ITEM) {
     let newState = JSON.parse(JSON.stringify(state));
-    newState.list.splice(action.index, 1);
+    newState.list.splice(action.index, 1); //删除数组中对应的值
     newState.inputValue = "";
     return newState;
   }
