@@ -28,7 +28,9 @@ function ChildComponent({ name, children }) {
     console.log("他来了");
     return name + ",小红向我们走来了";
   }
-  const actionXiaohong = changeXiaohong(name);
+  const actionXiaohong = useMemo(() => {
+    changeXiaohong(name), [name];
+  });
   return (
     <div>
       <div>{actionXiaohong}</div>
