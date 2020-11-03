@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import TodoList from "./TodoList";
-import ReducerDemo from "./ReducerDemo";
-import Example from "./example6/Example6";
+// import TodoList from "./TodoList";
+// import ReducerDemo from "./ReducerDemo";
+// import Example from "./example6/Example6";
+import Example from "./useMemoDemo";
 
 ReactDOM.render(<Example />, document.getElementById("root"));
 
