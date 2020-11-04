@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 
 function useMemoDemo() {
   const [xiaohong, setXiaohong] = useState("小红在待客状态");
